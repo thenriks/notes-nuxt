@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <div>
-      	Hello Wordl
-      </div>
+      <h1 class="subtitle">Notes</h1>
+      <NuxtLink to="/edit">Edit/Create new</NuxtLink>
+      <br>
       <NuxtLink to="/about">About</NuxtLink>
     </div>
   </div>

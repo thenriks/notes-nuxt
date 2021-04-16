@@ -2,7 +2,7 @@
 	<div>
     <textarea></textarea>
     <br>
-    <button>Send</button>
+    <button v-on:click="sendText()">Send</button>
   </div>
 </template>
 
@@ -12,6 +12,11 @@
     data() {
       return {
         site: []
+      }
+    },
+    methods: {
+      sendText: async function() {
+        console.log("token: " + this.$props.token)
       }
     }
   }

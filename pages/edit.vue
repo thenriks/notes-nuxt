@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
   		<div v-if="siteSet">
-        <h1 class="subtitle">Edit</h1>
+        <h3 class="subtitle">Edit</h3>
 
         <div>
           Token: {{ token }}
@@ -11,15 +11,15 @@
 
         <button v-on:click="editorMode = 1">Text</button>
         <button v-on:click="editorMode = 2">Link</button>
-        <TextEditor v-if="editorMode === 1" token="token" />
-        <LinkEditor v-else-if="editorMode === 2" token="token" />
+        <TextEditor v-if="editorMode === 1" :token="token" />
+        <LinkEditor v-else-if="editorMode === 2" :token="token" />
 	  		<Site :site-id="siteId" />
   		</div>
       <div v-else>
         Edit site with token:
         <br>
         <input type="text" name="tokenInput" v-model="token">
-        <button v-on:click="sendToken()">Send</button>
+        <button v-on:click="sendToken()">Edit</button>
         <hr>
         <button v-on:click="newSite()">Create new</button>
       </div>
