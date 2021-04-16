@@ -1,27 +1,12 @@
 <template>
 	<div class="container">
-  		<div>
-	  		<h1 class="subtitle">{{site.title}}</h1>
-  			<div v-for="el in site.elements">
-          <div v-if="el.type === 'text'" class="site-element">
-            {{ el.text }}
-          </div>
-          <div v-else-if="el.type === 'link'" class="site-element">
-            <a :href="el.url" target="_blank">{{ el.url }}</a>
-          </div>
-  			</div>
-  		</div>
-  	</div>
+  	<Site :site-id="$route.params.id" />
+  </div>
 </template>
 
 
 <script>
-  export default {
-    async asyncData({ params, $http }) {
-      const site = await $http.$get(`http://127.0.0.1:8000/site/${params.id}`)
-      return { site }
-    }
-  }
+
 </script>
 
 <style>
