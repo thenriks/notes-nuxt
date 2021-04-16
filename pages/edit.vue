@@ -1,13 +1,28 @@
 <template>
 	<div class="container">
-  		<div>
+  		<div v-if="siteSet">
         <h1 class="subtitle">Edit</h1>
+
+        <div>
+          Token: {{ token }}
+          <br>
+          Address: /sites/{{ siteId }} 
+        </div>
+
         <button v-on:click="editorMode = 1">Text</button>
         <button v-on:click="editorMode = 2">Link</button>
         <TextEditor v-if="editorMode === 1" token="token" />
         <LinkEditor v-else-if="editorMode === 2" token="token" />
 	  		<Site :site-id="siteId" />
   		</div>
+      <div v-else>
+        Edit site with token:
+        <br>
+        <input type="text" name="tokenInput" v-model="token">
+        <button v-on:click="sendToken()">Send</button>
+        <hr>
+        <button v-on:click="newSite()">Create new</button>
+      </div>
   	</div>
 </template>
 
@@ -15,9 +30,24 @@
   export default {
     data() {
       return {
-        siteId: 7,
-        token: "",
-        editorMode: 1
+        siteId: 2,
+        token: "kCsQBY",
+        editorMode: 1,
+        siteSet: false,
+        fetched: ""
+      }
+    },
+    methods: {
+      sendToken: async function() {
+        //this.siteId = this.fetchSiteId()
+        this.siteId = await this.$http.$get('http://127.0.0.1:8000/site_id/' + this.token)
+        this.siteSet = true
+      },
+      newSite: async function() {
+        const siteInfo = await this.$http.$post('http://127.0.0.1:8000/new')
+        this.token = siteInfo.token
+        this.siteId = siteInfo.sid
+        this,siteSet = true
       }
     }
   }
@@ -78,4 +108,5 @@
 .links {
   padding-top: 15px;
 }
+
 </style>

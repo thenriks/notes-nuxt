@@ -41,6 +41,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http'
   ],
+  http: {
+    // proxyHeaders: false
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
