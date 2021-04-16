@@ -2,6 +2,10 @@
 	<div class="container">
   		<div>
         <h1 class="subtitle">Edit</h1>
+        <button v-on:click="editorMode = 1">Text</button>
+        <button v-on:click="editorMode = 2">Link</button>
+        <TextEditor v-if="editorMode === 1" token="token" />
+        <LinkEditor v-else-if="editorMode === 2" token="token" />
 	  		<Site :site-id="siteId" />
   		</div>
   	</div>
@@ -11,12 +15,13 @@
   export default {
     data() {
       return {
-        siteId: 7
+        siteId: 7,
+        token: "",
+        editorMode: 1
       }
     }
   }
 </script>
-
 
 <style>
 .container {
