@@ -27,7 +27,7 @@
     },
     async fetch() {
       this.site = await fetch(
-        `http://127.0.0.1:8000/site/` + this.siteId
+        `https://agile-river-85748.herokuapp.com/site/` + this.siteId
       ).then(res => res.json())
     },
     methods: {
