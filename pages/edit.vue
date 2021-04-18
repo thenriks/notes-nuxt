@@ -13,7 +13,8 @@
         <button v-on:click="editorMode = 2">Link</button>
         <TextEditor v-if="editorMode === 1" :token="token" />
         <LinkEditor v-else-if="editorMode === 2" :token="token" />
-	  		<Site :site-id="siteId" />
+        <hr>
+	  		<Site :site-id="siteId" ref="site"/>
   		</div>
       <div v-else>
         Edit site with token:
@@ -31,7 +32,7 @@
     data() {
       return {
         siteId: 2,
-        token: "kCsQBY",
+        token: "1uxinR",
         editorMode: 1,
         siteSet: false,
         fetched: ""
@@ -48,6 +49,9 @@
         this.token = siteInfo.token
         this.siteId = siteInfo.sid
         this,siteSet = true
+      },
+      refreshSite: async function() {
+        this.$refs.site.refreshSite()
       }
     }
   }

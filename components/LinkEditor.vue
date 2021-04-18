@@ -1,7 +1,7 @@
 <template>
 	<div>
-    <input type="text">
-    <button>Send</button>
+    <input type="text" v-model="newLink">
+    <button v-on:click="sendLink()">Send</button>
   </div>
 </template>
 
@@ -10,7 +10,14 @@
     props: ['token'],
     data() {
       return {
+        newLink: "",
         site: []
+      }
+    },
+    methods: {
+      sendLink: async function() {
+        const r = await this.$http.$post('http://127.0.0.1:8000/add_link', {token: this.$props.token, url: this.newLink})
+        this.$parent.refreshSite()
       }
     }
   }
