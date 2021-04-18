@@ -3,8 +3,12 @@
   		<div>
 	  		<h1>About</h1>
   			<div>
+          <p>
           Site is made using Nuxt.js, MongoDB and FastAPI.
+          </p>
+          <p>
   				GitHub: <a href="https://github.com/thenriks/notes-nuxt">https://github.com/thenriks/notes-nuxt</a>
+          </p>
   			</div>
   		</div>
   	</div>

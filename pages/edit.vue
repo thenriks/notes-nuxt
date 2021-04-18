@@ -6,7 +6,7 @@
         <div>
           Token: {{ token }}
           <br>
-          Address: /sites/{{ siteId }} 
+          Address: https://notes-nuxt.vercel.app/sites/{{ siteId }} 
         </div>
 
         <button v-on:click="editorMode = 1">Text</button>
@@ -48,7 +48,7 @@
         const siteInfo = await this.$http.$post('https://agile-river-85748.herokuapp.com/new')
         this.token = siteInfo.token
         this.siteId = siteInfo.sid
-        this,siteSet = true
+        this.siteSet = true
       },
       refreshSite: async function() {
         this.$refs.site.refreshSite()
