@@ -6,10 +6,10 @@
         <div v-else>
     			<div v-for="el in site.elements">
             <div v-if="el.type === 'text'" class="site-element">
-              {{ el.text }}
+              <TextElement :text="el.text" />
             </div>
             <div v-else-if="el.type === 'link'" class="site-element">
-              <a :href="el.url" target="_blank">{{ el.url }}</a>
+              <LinkElement :url="el.url" />
             </div>
     			</div>
         </div>
