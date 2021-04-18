@@ -31,8 +31,8 @@
   export default {
     data() {
       return {
-        siteId: 2,
-        token: "1uxinR",
+        siteId: 0,
+        token: "",
         editorMode: 1,
         siteSet: false,
         fetched: ""
