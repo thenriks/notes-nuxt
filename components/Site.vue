@@ -32,7 +32,7 @@
     },
     methods: {
       refreshSite: async function() {
-        this.site = await this.$http.$get('http://127.0.0.1:8000/site/' + this.siteId)
+        this.site = await this.$http.$get('https://agile-river-85748.herokuapp.com/site/' + this.siteId)
       }
     }
   }

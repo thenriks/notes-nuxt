@@ -16,7 +16,7 @@
     },
     methods: {
       sendLink: async function() {
-        const r = await this.$http.$post('http://127.0.0.1:8000/add_link', {token: this.$props.token, url: this.newLink})
+        const r = await this.$http.$post('https://agile-river-85748.herokuapp.com/add_link', {token: this.$props.token, url: this.newLink})
         this.$parent.refreshSite()
       }
     }

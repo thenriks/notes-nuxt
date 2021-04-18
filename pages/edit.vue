@@ -41,11 +41,11 @@
     methods: {
       sendToken: async function() {
         //this.siteId = this.fetchSiteId()
-        this.siteId = await this.$http.$get('http://127.0.0.1:8000/site_id/' + this.token)
+        this.siteId = await this.$http.$get('https://agile-river-85748.herokuapp.com/site_id/' + this.token)
         this.siteSet = true
       },
       newSite: async function() {
-        const siteInfo = await this.$http.$post('http://127.0.0.1:8000/new')
+        const siteInfo = await this.$http.$post('https://agile-river-85748.herokuapp.com/new')
         this.token = siteInfo.token
         this.siteId = siteInfo.sid
         this,siteSet = true

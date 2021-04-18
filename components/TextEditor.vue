@@ -19,7 +19,7 @@
       sendText: async function() {
         // console.log("token: " + this.$props.token)
         // console.log("text: " + this.newText)
-        const r = await this.$http.$post('http://127.0.0.1:8000/add_text', {token: this.$props.token, text: this.newText})
+        const r = await this.$http.$post('https://agile-river-85748.herokuapp.com/add_text', {token: this.$props.token, text: this.newText})
         //console.log(r)
         this.$parent.refreshSite()
       }
