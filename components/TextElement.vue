@@ -1,6 +1,11 @@
 <template>
-	<div>
-		{{ text }}
+	<div class="element">
+		<div>
+			{{ text }}
+		</div>
+		<div>
+			<button>X</button>
+		</div>
 	</div>
 </template>
 
@@ -9,3 +14,9 @@
     props: ['text']
   }
 </script>
+
+<style>
+.element {
+	display: flex;
+}
+</style>
