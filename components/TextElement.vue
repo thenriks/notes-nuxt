@@ -4,14 +4,19 @@
 			{{ text }}
 		</div>
 		<div>
-			<button>X</button>
+			<button v-on:click="removeElement()">X</button>
 		</div>
 	</div>
 </template>
 
 <script>
   export default {
-    props: ['text']
+    props: ['text', 'eid'],
+    methods: {
+    	removeElement: async function() {
+    		this.$parent.removeElement(this.$props.eid)
+    	}
+    }
   }
 </script>
 

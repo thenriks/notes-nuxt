@@ -14,7 +14,7 @@
         <TextEditor v-if="editorMode === 1" :token="token" />
         <LinkEditor v-else-if="editorMode === 2" :token="token" />
         <hr>
-	  		<Site :site-id="siteId" ref="site"/>
+	  		<Site :site-id="siteId" :edit="true" :token="token" ref="site" />
   		</div>
       <div v-else>
         Edit site with token:

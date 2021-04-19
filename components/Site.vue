@@ -6,7 +6,7 @@
         <div v-else>
     			<div v-for="el in site.elements">
             <div v-if="el.type === 'text'" class="site-element">
-              <TextElement :text="el.text" />
+              <TextElement :text="el.text" :eid="el.id" />
             </div>
             <div v-else-if="el.type === 'link'" class="site-element">
               <LinkElement :url="el.url" />
@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    props: ['siteId'],
+    props: ['siteId', 'edit', 'token'],
     data() {
       return {
         site: []
@@ -33,6 +33,10 @@
     methods: {
       refreshSite: async function() {
         this.site = await this.$http.$get('https://agile-river-85748.herokuapp.com/site/' + this.siteId)
+      },
+      removeElement: async function(eid) {
+        const r = await this.$http.$post('https://agile-river-85748.herokuapp.com/remove', {token: this.$props.token, id: eid})
+        this.refreshSite()
       }
     }
   }

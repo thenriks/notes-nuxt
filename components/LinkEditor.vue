@@ -16,7 +16,13 @@
     },
     methods: {
       sendLink: async function() {
+        if (!this.newLink.startsWith('http://') || !this.newLink.startsWith('https://')) {
+          this.newLink = 'http://' + this.newLink;
+        }
         const r = await this.$http.$post('https://agile-river-85748.herokuapp.com/add_link', {token: this.$props.token, url: this.newLink})
+
+        this.newLink = ""
+
         this.$parent.refreshSite()
       }
     }

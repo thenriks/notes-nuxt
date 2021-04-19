@@ -21,6 +21,7 @@
         // console.log("text: " + this.newText)
         const r = await this.$http.$post('https://agile-river-85748.herokuapp.com/add_text', {token: this.$props.token, text: this.newText})
         //console.log(r)
+        this.newText = ""
         this.$parent.refreshSite()
       }
     }

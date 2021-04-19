@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-  	<Site :site-id="$route.params.id" />
+  	<Site :site-id="$route.params.id" :edit="false" />
   </div>
 </template>
 
