@@ -6,10 +6,10 @@
         <div v-else>
     			<div v-for="el in site.elements">
             <div v-if="el.type === 'text'" class="site-element">
-              <TextElement :text="el.text" :eid="el.id" />
+              <TextElement :text="el.text" :eid="el.id" :edit='edit' />
             </div>
             <div v-else-if="el.type === 'link'" class="site-element">
-              <LinkElement :url="el.url" />
+              <LinkElement :url="el.url" :eid="el.id" :edit='edit' />
             </div>
     			</div>
         </div>

@@ -3,15 +3,15 @@
 		<div>
 			{{ text }}
 		</div>
-		<div>
-			<button v-on:click="removeElement()">X</button>
+		<div v-if="">
+			<button v-if="edit == true" v-on:click="removeElement()">X</button>
 		</div>
 	</div>
 </template>
 
 <script>
   export default {
-    props: ['text', 'eid'],
+    props: ['text', 'eid', 'edit'],
     methods: {
     	removeElement: async function() {
     		this.$parent.removeElement(this.$props.eid)
